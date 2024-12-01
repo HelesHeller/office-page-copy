@@ -29,20 +29,21 @@ const productsData = {
     ],
 };
 
-const CategoryProducts = () => {
+const CategoryProducts = ({ addToCart }) => {
     const { categoryName } = useParams();
     const products = productsData[categoryName] || [];
 
     return (
         <div className="category-products-page">
-            <h2>Товари для категорії: {categoryName}</h2>
+            <h2>Товары для категории: {categoryName}</h2>
             <div className="products">
                 {products.map((product) => (
                     <div key={product.id} className="product-card">
                         <img src={product.image} alt={product.name} />
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>
-                        <p>Ціна: {product.price} грн</p>
+                        <p>Цена: {product.price} грн</p>
+                        <button onClick={() => addToCart(product)}>Добавить в корзину</button>
                     </div>
                 ))}
             </div>

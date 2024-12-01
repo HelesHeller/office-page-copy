@@ -14,7 +14,7 @@ const categories = [
 const CategoryPage = () => {
     return (
         <div className="category-page">
-            <h2>Офісні товари і підкатегорії</h2>
+            <h2>Офисные товары и подкатегории</h2>
             <div className="categories">
                 {categories.map((category) => (
                     <Link key={category.path} to={`/categories/${category.path}`} className="category-card">
@@ -23,6 +23,9 @@ const CategoryPage = () => {
                     </Link>
                 ))}
             </div>
+            <Link to="/cart" className="cart-button">
+                Перейти в корзину
+            </Link>
         </div>
     );
 };
